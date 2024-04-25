@@ -57,10 +57,12 @@ function App() {
       </div>
       <div className="posts">
         <h2>My posts</h2>
-        <input type="text" placeholder='Your news...'/>
-        <div className="btn-wrapper">
-          <button type='button'>Send</button>
-        </div>
+        <form action='#'>
+          <input type="text" placeholder='Your news...'/>
+          <div className="btn-wrapper">
+            <button type='button'>Send</button>
+          </div>
+        </form>
         <div className='post'>
           <div className='cycle'></div>
           <p>Hey, why nobody love me?</p>
