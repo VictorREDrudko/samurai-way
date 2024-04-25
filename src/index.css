@@ -11,6 +11,11 @@ ul {
   list-style-type: none;
 }
 
+a {
+  color: green;
+  text-decoration: none;
+}
+
 * {
   margin: 0;
   padding: 0;

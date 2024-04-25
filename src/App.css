@@ -37,7 +37,7 @@
 
 
 .side-bar {
-  background-color: rgb(138, 218, 250);
+  background-color: rgb(198, 254, 208);
   grid-area: bar;
 }
 
@@ -48,6 +48,13 @@
 
 .side-bar li {
   margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  transition: all 0.5s;
+}
+
+.side-bar li:hover {
+  transform: scale(1.2);
 }
 
 
@@ -129,6 +136,14 @@
   width: 120px;
   color: aliceblue;
   cursor: pointer;
+  transition: all 0.5s;
+}
+
+.posts button:hover {
+  background-color: aliceblue;
+  padding: 5px;
+  width: 120px;
+  color: #05891d;;
 }
 
 .posts input {
@@ -136,7 +151,7 @@
   height: 40px;
   background-color: #c2c0c0;
   padding: 5px;
-  font-size: 10px;
+  font-size: 14px;
 }
 
 .post {
