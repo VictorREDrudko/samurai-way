@@ -1,0 +1,17 @@
+.header {
+  background-color: rgb(130, 248, 121);
+  grid-area: head;
+  display: flex;
+  padding: 10px 20px;
+}
+
+.header img {
+  max-width: 50px;
+  width: 100%;
+  transition: all 0.5s;
+}
+
+.header img:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}

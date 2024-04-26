@@ -1,6 +1,8 @@
+import style from './Navbar.module.css'
+
 export const Navbar = () => {
   return (
-    <aside className="side-bar">
+    <aside className={style.sidebar}>
       <nav>
         <ul>
           <li>

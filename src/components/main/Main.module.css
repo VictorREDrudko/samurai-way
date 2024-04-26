@@ -1,0 +1,91 @@
+.main {
+  grid-area: main;
+}
+
+.img_main {
+  width: 100%;
+  object-fit: cover;
+}
+
+
+.content {
+  padding: 5px;
+  display: flex;
+  gap: 20px;
+}
+
+.img_content {
+  max-width: 150px;
+  width: 100%;
+  object-fit: contain;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 10px;
+}
+
+.description h1 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.description span {
+  font-size: 16px;
+}
+
+.description_text {
+  display: flex;
+  gap: 5px;
+}
+
+.description_text span:first-child {
+  font-weight: 600;
+}
+
+.posts {
+  text-align: left;
+  padding: 5px;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.posts h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.btn_wrapper {
+  width: 65%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.posts button {
+  background-color: #05891d;
+  padding: 5px;
+  width: 120px;
+  color: aliceblue;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.posts button:hover {
+  background-color: aliceblue;
+  padding: 5px;
+  width: 120px;
+  color: #05891d;;
+}
+
+.posts input {
+  width: 65%;
+  height: 40px;
+  background-color: #c2c0c0;
+  padding: 5px;
+  font-size: 14px;
+}

@@ -1,0 +1,13 @@
+.post {
+  margin-top: 10px;
+  padding: 5px;
+  display: flex;
+  gap: 15px;
+}
+
+.circle {
+  background-color: #05891d;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
