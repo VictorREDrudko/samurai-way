@@ -10,10 +10,10 @@ export const Posts = () => {
       <textarea placeholder='Your news...'/>
       <Button/>
     </form>
-    <Post/>
-    <Post/>
-    <Post/>
-    <Post/>
+    <Post message="Hi! How are you?" count={9}/>
+    <Post message="Hello! I'm fine? What about you?" count={1}/>
+    <Post message="Thanks! I'm very happy" count={45}/>
+    <Post message="Ok! Hey, why nobody love me?" count={93}/>
   </div>
   )
 }
