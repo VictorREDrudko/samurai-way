@@ -20,6 +20,7 @@
 .like_wrapper img {
   width: 25px;
   height: 25px;
+  background-color: transparent;
 }
 
 .like_wrapper span {
