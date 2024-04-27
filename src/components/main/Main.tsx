@@ -1,7 +1,8 @@
 import MainImage from './../../assets/image/carving.jpg'
 import Lion from './../../assets/image/line.png'
-import { Post } from './post/Post'
+import { Post } from './posts/post/Post'
 import style from './Main.module.css'
+import { Posts } from './posts/Posts'
 
 export const Main = () => {
   return (
@@ -29,17 +30,7 @@ export const Main = () => {
           </div>
         </div>
       </div>
-      <div className={style.posts}>
-        <h2>My posts</h2>
-        <form action='#'>
-          <input type="text" placeholder='Your news...'/>
-          <div className={style.btn_wrapper}>
-            <button type='button'>Send</button>
-          </div>
-        </form>
-        <Post/>
-        <Post/>
-      </div>
+      <Posts/>
     </main>
   )
 }

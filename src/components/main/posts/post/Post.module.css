@@ -1,0 +1,27 @@
+.post {
+  margin-top: 10px;
+  padding: 5px;
+  display: flex;
+  gap: 15px;
+}
+
+.post img {
+  background-color: #05891d;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.like_wrapper {
+  color: yellowgreen;
+  margin-left: 20px;
+}
+
+.like_wrapper img {
+  width: 25px;
+  height: 25px;
+}
+
+.like_wrapper span {
+  margin-left: 5px;
+}

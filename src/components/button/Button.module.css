@@ -1,0 +1,22 @@
+.btn_wrapper {
+  width: 65%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.btn_wrapper button {
+  background-color: #05891d;
+  padding: 5px;
+  width: 120px;
+  color: aliceblue;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.btn_wrapper button:hover {
+  background-color: aliceblue;
+  padding: 5px;
+  width: 120px;
+  color: #05891d;;
+}
