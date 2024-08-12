@@ -11,3 +11,8 @@
   grid-template-columns: 2fr 10fr;
   gap: 1px;
 }
+
+.content {
+  grid-area: main;
+  background-color: rgb(236, 255, 184);
+}

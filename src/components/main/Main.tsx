@@ -6,7 +6,7 @@ import { Posts } from './posts/Posts'
 
 export const Main = () => {
   return (
-    <main className={style.main}>
+    <main>
       <img className={style.img_main} src={MainImage} alt='carving'/>
       <div className={style.content}>
         <img className={style.img_content} src={Lion} alt='lion'/>
