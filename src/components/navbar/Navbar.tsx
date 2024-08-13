@@ -1,24 +1,26 @@
+import { NavLink } from 'react-router-dom'
 import style from './Navbar.module.css'
 
 export const Navbar = () => {
+
   return (
     <aside className={style.sidebar}>
       <nav>
         <ul>
           <li>
-            <a href='/main'>Profile</a>
+            <NavLink style={({isActive}) => ({color: isActive ? "red" : ''})} to='/main'>Profile</NavLink>
           </li>
           <li>
-            <a href='/dialogs'>Messanges</a>
+            <NavLink style={({isActive}) => ({color: isActive ? "red" : ''})} to='/dialogs'>Messanges</NavLink>
           </li>
           <li>
-            <a href='/news'>News</a>
+            <NavLink style={({isActive}) => ({color: isActive ? "red" : ''})} to='/news'>News</NavLink>
           </li>
           <li>
-            <a href='/music'>Music</a>
+            <NavLink style={({isActive}) => ({color: isActive ? "red" : ''})} to='/music'>Music</NavLink>
           </li>
           <li>
-            <a href='/settings'>Settings</a>
+            <NavLink style={({isActive}) => ({color: isActive ? "red" : ''})} to='/settings'>Settings</NavLink>
           </li>
         </ul>
       </nav>
