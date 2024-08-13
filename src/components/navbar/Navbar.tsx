@@ -2,27 +2,20 @@ import { NavLink } from 'react-router-dom'
 import style from './Navbar.module.css'
 
 export const Navbar = () => {
+  // DATA
+  const menuItems = ["profile", "messanges", "news", "music", "settings"];
+  const mappedItemsNavbar = menuItems.map((el, index) => {
+    return (
+      <li key={index}>
+        <NavLink style={({isActive}) => ({color: isActive ? "red" : ''})} to={`/${el}`}>{el}</NavLink>
+      </li>
+    )
+  })
 
   return (
     <aside className={style.sidebar}>
       <nav>
-        <ul>
-          <li>
-            <NavLink style={({isActive}) => ({color: isActive ? "red" : ''})} to='/main'>Profile</NavLink>
-          </li>
-          <li>
-            <NavLink style={({isActive}) => ({color: isActive ? "red" : ''})} to='/dialogs'>Messanges</NavLink>
-          </li>
-          <li>
-            <NavLink style={({isActive}) => ({color: isActive ? "red" : ''})} to='/news'>News</NavLink>
-          </li>
-          <li>
-            <NavLink style={({isActive}) => ({color: isActive ? "red" : ''})} to='/music'>Music</NavLink>
-          </li>
-          <li>
-            <NavLink style={({isActive}) => ({color: isActive ? "red" : ''})} to='/settings'>Settings</NavLink>
-          </li>
-        </ul>
+        <ul> {mappedItemsNavbar} </ul>
       </nav>
     </aside>
   )

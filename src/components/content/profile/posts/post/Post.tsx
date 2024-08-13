@@ -1,6 +1,6 @@
 import style from './Post.module.css'
-import ava from './../../../../assets/image/ava.jpg'
-import like from './../../../../assets/image/like.png'
+import ava from './../../../../../assets/image/ava.jpg'
+import like from './../../../../../assets/image/like.png'
 
 type PostPropsType = {
   message: string,
@@ -8,8 +8,6 @@ type PostPropsType = {
 }
 
 export const Post = (props: PostPropsType) => {
-
-  console.log(props)
 
   return (
     <div className={style.post}>

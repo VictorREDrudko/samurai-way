@@ -1,10 +1,10 @@
-import MainImage from './../../assets/image/carving.jpg'
-import Lion from './../../assets/image/line.png'
-import { Post } from './posts/post/Post'
-import style from './Main.module.css'
+import MainImage from './../../../assets/image/carving.jpg'
+import Lion from './../../../assets/image/line.png'
 import { Posts } from './posts/Posts'
+import style from './Profile.module.css'
 
-export const Main = () => {
+
+export const Profile = () => {
   return (
     <main>
       <img className={style.img_main} src={MainImage} alt='carving'/>

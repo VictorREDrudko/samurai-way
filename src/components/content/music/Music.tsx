@@ -1,5 +1,5 @@
 export const Music = () => {
   return (
-    <div>Music</div>
+    <h2>MUSIC</h2>
   )
 }

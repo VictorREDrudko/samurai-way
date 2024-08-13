@@ -9,10 +9,5 @@
   "bar main";
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
-  gap: 1px;
-}
-
-.content {
-  grid-area: main;
-  background-color: rgb(236, 255, 184);
+  gap: 5px;
 }

@@ -1,0 +1,36 @@
+.item {
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.5s;
+  font-weight: 600;
+}
+
+.item a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  color: green;
+}
+
+.item a:hover{
+  transition: all 0.5s;
+  background-color: #CCCC;
+  color: blue;
+}
+
+
+/* .message {
+  padding: 10px;
+  transition: all 0.5s;
+  border: 1px solid black;
+} */
+
+/* .item a:hover{
+  padding-left: 30px;
+  color: blue;
+} */
+
+/* .activeDialog {
+  font-weight: 700;
+} */

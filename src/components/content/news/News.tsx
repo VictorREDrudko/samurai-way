@@ -1,5 +1,5 @@
 export const News = () => {
   return (
-    <div>News</div>
+    <h2>NEWS</h2>
   )
 }

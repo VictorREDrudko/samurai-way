@@ -1,4 +1,4 @@
-import { Button } from './../../button/Button'
+import { Button } from '../../../button/Button'
 import style from './Posts.module.css'
 import { Post } from './post/Post'
 
