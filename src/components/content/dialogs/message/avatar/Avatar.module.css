@@ -1,0 +1,12 @@
+.avatarWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  font-size: 12px;
+}
+
+.avatarWrapper img {
+  width: 50px;
+}

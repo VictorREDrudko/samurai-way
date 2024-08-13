@@ -1,16 +1,21 @@
-import { Post } from "../profile/posts/post/Post";
+import { DialogsType } from "../../..";
 import s from "./Dialogs.module.css"
 import { ItemsDialogs } from "./itemsDialogs/ItemsDialogs";
+import { Message } from "./message/Message";
 
-export const Dialogs = () => {
+type DialogsPropsType = {
+  dialogs: DialogsType[] 
+}
+
+export const Dialogs = ({dialogs}: DialogsPropsType) => {
+  const mappedDialogs = dialogs.map(dialog => <Message messages={dialog.messages} userName={dialog.user}/>)
+
   return (
     <div>
       <h2>DIALOGS</h2>
       <div className={s.dialogs}>
         <ItemsDialogs/>
-        <div>
-          <Post message="Hi! How are you?" count={9}/>
-        </div>
+        <div> {mappedDialogs} </div>
       </div>
     </div>
 

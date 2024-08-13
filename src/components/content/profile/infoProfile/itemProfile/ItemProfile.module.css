@@ -1,0 +1,12 @@
+.description_text {
+  display: flex;
+  gap: 5px;
+}
+
+.description_text span {
+  font-size: 16px;
+}
+
+.description_text span:first-child {
+  font-weight: 600;
+}

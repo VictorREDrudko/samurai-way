@@ -1,4 +1,4 @@
-import style from './Post.module.css'
+import s from './Post.module.css'
 import ava from './../../../../../assets/image/ava.jpg'
 import like from './../../../../../assets/image/like.png'
 
@@ -10,10 +10,10 @@ type PostPropsType = {
 export const Post = (props: PostPropsType) => {
 
   return (
-    <div className={style.post}>
+    <div className={s.post}>
       <img src={ava} alt='avatar'/>
       <p>{props.message}</p>
-      <div className={style.like_wrapper}>
+      <div className={s.like_wrapper}>
         <img src={like} alt='like'/>
         <span>{props.count}</span>
       </div>

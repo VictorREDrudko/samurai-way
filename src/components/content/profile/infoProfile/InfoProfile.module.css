@@ -1,0 +1,24 @@
+.content {
+  padding: 5px;
+  display: flex;
+  gap: 20px;
+}
+
+.img_content {
+  max-width: 150px;
+  width: 100%;
+  object-fit: contain;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 10px;
+}
+
+.description h1 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+

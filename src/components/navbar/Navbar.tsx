@@ -1,13 +1,20 @@
 import { NavLink } from 'react-router-dom'
 import style from './Navbar.module.css'
+import { ItemNavbarType } from '../..'
 
-export const Navbar = () => {
-  // DATA
-  const menuItems = ["profile", "messanges", "news", "music", "settings"];
-  const mappedItemsNavbar = menuItems.map((el, index) => {
+type NavbarType = {
+  itemsNavbar: ItemNavbarType[]
+}
+
+export const Navbar = ({itemsNavbar} : NavbarType) => {
+  // Logic
+  const mappedItemsNavbar = itemsNavbar.map(itemMenu => {
     return (
-      <li key={index}>
-        <NavLink style={({isActive}) => ({color: isActive ? "red" : ''})} to={`/${el}`}>{el}</NavLink>
+      <li key={itemMenu.id}>
+        <NavLink style={({isActive}) => ({color: isActive ? "red" : ''})} 
+                 to={`/${itemMenu.title}`}>
+          {itemMenu.title}
+        </NavLink>
       </li>
     )
   })
