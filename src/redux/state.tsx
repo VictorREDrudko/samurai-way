@@ -7,10 +7,15 @@ type InfoType = {
   value: string
 }
 
-export type PostType = {
+type PostType = {
   id: number
   text: string
   count: number
+}
+
+export type PostsType = {
+  valueTextarea: string
+  allPosts: PostType[]
 }
 
 export type PersonalInfoProfileType = {
@@ -34,9 +39,9 @@ export type FriendType = {
   userName: string
 }
 
-type ProfilePageType = {
+export type ProfilePageType = {
   personalInfoProfile: PersonalInfoProfileType
-  posts: PostType[]
+  posts: PostsType
 }
 
 type DialogsPageType = {
@@ -58,24 +63,22 @@ export type StateType = {
   sitebar: SitebarType
 }
 
+// Add new post
 export const addNewPost = (text: string) => {
   const newPost = {
-    id: state.contentPage.profilePage.posts.length + 1, 
+    id: state.contentPage.profilePage.posts.allPosts.length + 1, 
     text, 
     count: 0,
   }
-  state.contentPage.profilePage.posts.push(newPost);
+  state.contentPage.profilePage.posts.allPosts.push(newPost);
 
   allRerender(state)
-  // return (
-  //   {...state, contentPage: 
-  //     {...state.contentPage, profilePage: 
-  //       {...state.contentPage.profilePage, posts: 
-  //         [newPost, ...state.contentPage.profilePage.posts]
-  //       }
-  //     }
-  //   }
-  // )
+}
+
+// Change text texarea
+export const updateTextareaPost = (newtext: string) => {
+  state.contentPage.profilePage.posts.valueTextarea = newtext;
+  allRerender(state)
 }
 
 // GLOBAL DATA
@@ -91,12 +94,15 @@ const state: StateType = {
         {id: 4, title: "Web Site:", value: "https://it-kamasutra.com"},
          ]
       },
-      posts: [
-        {id: 1, text: "How I am?", count: 7},
-        {id: 2, text: "I want to become a super specialist!!!", count: 1},
-        {id: 3, text: "I'd like to speak English correctly and fluently", count: 22},
-        {id: 4, text: "Hey, why nobody love me?", count: 5}
-      ]
+      posts: {
+        valueTextarea: "",
+        allPosts: [
+          {id: 1, text: "How I am?", count: 7},
+          {id: 2, text: "I want to become a super specialist!!!", count: 1},
+          {id: 3, text: "I'd like to speak English correctly and fluently", count: 22},
+          {id: 4, text: "Hey, why nobody love me?", count: 5}
+        ]
+      }
     },
     dialogsPage: {
       dialogs: [

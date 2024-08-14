@@ -7,14 +7,15 @@ import { StateType } from './redux/state';
 type AppType = {
   state: StateType
   addPost: (text: string)=>void
+  updateTextareaPost: (newtext: string)=>void
 }
 
-function App({state, addPost}: AppType) {
+function App({state, addPost, updateTextareaPost}: AppType) {
    return (
     <div className="wrapper">
       <Header/>
       <Navbar state={state.sitebar}/>
-      <Content state={state.contentPage} addPost={addPost}/>
+      <Content state={state.contentPage} addPost={addPost} updateTextareaPost={updateTextareaPost}/>
     </div>
   );
 }

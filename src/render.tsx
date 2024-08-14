@@ -1,14 +1,14 @@
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { addNewPost, StateType } from './redux/state'
+import { addNewPost, StateType, updateTextareaPost } from './redux/state'
 import { BrowserRouter } from 'react-router-dom';
 
 
 export const allRerender = (state:StateType) => {
   ReactDOM.render(
     <BrowserRouter>
-      <App state={state} addPost={addNewPost}/>
+      <App state={state} addPost={addNewPost} updateTextareaPost={updateTextareaPost}/>
     </BrowserRouter>,
     document.getElementById('root')
   );

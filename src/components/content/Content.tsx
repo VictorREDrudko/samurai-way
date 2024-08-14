@@ -10,13 +10,20 @@ import { ContentType } from "../../redux/state"
 type ContentPropsType = {
   state: ContentType
   addPost: (text: string)=>void
+  updateTextareaPost: (newtext: string)=>void
 }
 
-export const Content = ({state, addPost}: ContentPropsType) => {
+export const Content = ({state, addPost, updateTextareaPost}: ContentPropsType) => {
   return (
     <div className={s.content}>
       <Routes>
-        <Route path='/profile' element={<Profile addPost={addPost} infoProfile={state.profilePage.personalInfoProfile} posts={state.profilePage.posts}/>}/>
+        <Route path='/profile' element={
+          <Profile  addPost={addPost} 
+                    updateTextareaPost={updateTextareaPost}
+                    infoProfile={state.profilePage.personalInfoProfile} 
+                    posts={state.profilePage.posts}/>
+            }
+          />
         <Route path='/messanges' element={<Dialogs dialogs={state.dialogsPage.dialogs}/>}/>
         <Route path='/news' element={<News/>}/>
         <Route path='/music' element={<Music/>}/>
@@ -25,6 +32,3 @@ export const Content = ({state, addPost}: ContentPropsType) => {
   </div>
   )
 }
-
-
-// infoProfile={props.infoProfile}

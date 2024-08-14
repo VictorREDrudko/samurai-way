@@ -4,8 +4,6 @@
 // import state from './redux/state'
 // import { BrowserRouter } from 'react-router-dom';
 // import { addNewPost } from './redux/state'
-import state from './redux/state';
-import { allRerender } from './render';
 
 //   ReactDOM.render(
 //     <BrowserRouter>
@@ -13,5 +11,9 @@ import { allRerender } from './render';
 //     </BrowserRouter>,
 //     document.getElementById('root')
 //   );
+
+
+import state from './redux/state';
+import { allRerender } from './render';
 
 allRerender(state)
