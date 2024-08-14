@@ -1,20 +1,20 @@
-import { PersonalInfoProfileType, PostType } from '../../..'
+import { PersonalInfoProfileType, PostType } from '../../../redux/state'
 import MainImage from './../../../assets/image/carving.jpg'
 import { InfoProfile } from './infoProfile/InfoProfile'
 import { Posts } from './posts/Posts'
 import style from './Profile.module.css'
 
 type ProfileType = {
-  infoProfile: PersonalInfoProfileType[]
+  infoProfile: PersonalInfoProfileType
   posts: PostType[]
 }
 
-export const Profile = (props: ProfileType) => {
+export const Profile = ({infoProfile, posts}: ProfileType) => {
   return (
     <main>
       <img className={style.img_main} src={MainImage} alt='carving'/>
-      <InfoProfile infoProfile={props.infoProfile}/>
-      <Posts posts={props.posts}/>
+      <InfoProfile infoProfile={infoProfile}/>
+      <Posts posts={posts}/>
     </main>
   )
 }

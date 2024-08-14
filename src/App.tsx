@@ -3,22 +3,19 @@ import { Header } from './components/header/Header';
 import { Navbar } from './components/navbar/Navbar';
 import { BrowserRouter } from 'react-router-dom';
 import { Content } from './components/content/Content';
-import { DialogsType, ItemNavbarType, PersonalInfoProfileType, PostType } from '.';
+import { StateType } from './redux/state';
 
 type AppType = {
-  itemsNavbar: ItemNavbarType[]
-  infoProfile: PersonalInfoProfileType[]
-  posts: PostType[]
-  dialogs: DialogsType[] 
+  state: StateType
 }
 
-function App(props: AppType) {
+function App({state}: AppType) {
    return (
     <BrowserRouter>
       <div className="wrapper">
         <Header/>
-        <Navbar itemsNavbar={props.itemsNavbar}/>
-        <Content infoProfile={props.infoProfile} posts={props.posts} dialogs={props.dialogs}/>
+        <Navbar state={state.sitebar}/>
+        <Content state={state.contentPage}/>
       </div>
     </BrowserRouter>
   );

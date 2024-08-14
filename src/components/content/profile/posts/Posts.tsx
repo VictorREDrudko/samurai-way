@@ -1,4 +1,4 @@
-import { PostType } from '../../../..'
+import { PostType } from '../../../../redux/state'
 import { Button } from '../../../button/Button'
 import style from './Posts.module.css'
 import { Post } from './post/Post'

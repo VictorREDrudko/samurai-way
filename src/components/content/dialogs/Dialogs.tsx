@@ -1,10 +1,10 @@
-import { DialogsType } from "../../..";
+import { DialogType } from "../../../redux/state";
 import s from "./Dialogs.module.css"
 import { ItemsDialogs } from "./itemsDialogs/ItemsDialogs";
 import { Message } from "./message/Message";
 
 type DialogsPropsType = {
-  dialogs: DialogsType[] 
+  dialogs: DialogType[] 
 }
 
 export const Dialogs = ({dialogs}: DialogsPropsType) => {

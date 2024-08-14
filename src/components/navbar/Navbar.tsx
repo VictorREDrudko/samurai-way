@@ -1,14 +1,14 @@
 import { NavLink } from 'react-router-dom'
 import style from './Navbar.module.css'
-import { ItemNavbarType } from '../..'
+import { SitebarType } from '../../redux/state'
 
 type NavbarType = {
-  itemsNavbar: ItemNavbarType[]
+  state: SitebarType
 }
 
-export const Navbar = ({itemsNavbar} : NavbarType) => {
+export const Navbar = ({state} : NavbarType) => {
   // Logic
-  const mappedItemsNavbar = itemsNavbar.map(itemMenu => {
+  const mappedItemsNavbar = state.itemsNavbar.map(itemMenu => {
     return (
       <li key={itemMenu.id}>
         <NavLink style={({isActive}) => ({color: isActive ? "red" : ''})} 

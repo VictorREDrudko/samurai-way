@@ -1,15 +1,15 @@
 import s from "./InfoProfile.module.css"
 import Lion from './../../../../assets/image/line.png'
 import { ItemProfile } from "./itemProfile/ItemProfile"
-import { PersonalInfoProfileType } from "../../../.."
+import { PersonalInfoProfileType } from "../../../../redux/state"
 
 type InfoProfilePropsType = {
-  infoProfile: PersonalInfoProfileType[]
+  infoProfile: PersonalInfoProfileType
 }
 
 export const InfoProfile = ({infoProfile}: InfoProfilePropsType) => {
   // Logic
-  const mappedInfoProfile = infoProfile[0].info.map(el => {
+  const mappedInfoProfile = infoProfile.info.map(el => {
     return (
       <ItemProfile key={el.id} title={el.title} value={el.value}/>
     )
@@ -19,7 +19,7 @@ export const InfoProfile = ({infoProfile}: InfoProfilePropsType) => {
     <div className={s.content}>
       <img className={s.img_content} src={Lion} alt='lion'/>
       <div className={s.description}>
-        <h1>{infoProfile[0].userName}</h1>
+        <h1>{infoProfile.userName}</h1>
         {mappedInfoProfile}
       </div>
     </div>
