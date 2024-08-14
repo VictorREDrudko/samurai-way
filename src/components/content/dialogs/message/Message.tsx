@@ -1,4 +1,4 @@
-import { Avatar } from "./avatar/Avatar"
+import { Avatar } from "../../../avatar/Avatar"
 import s from "./Message.module.css"
 
 type MessageType = {

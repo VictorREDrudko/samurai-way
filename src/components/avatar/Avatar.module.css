@@ -1,0 +1,25 @@
+.avatarWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 55px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.avatarWrapper:hover {
+  transform: scale(1.2);
+}
+
+.avatarWrapper img {
+  width: 50px;
+  border-radius: 50%;
+  border: 1px solid rgb(142, 250, 142);
+  box-shadow: 5px 5px 5px grey;
+}
+
+.avatarWrapper span {
+  font-size: 12px;
+  margin-top: 10px;
+}

@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom'
-import style from './Navbar.module.css'
+import s from './Navbar.module.css'
 import { SitebarType } from '../../redux/state'
+import { Friends } from './friends/Friends'
 
 type NavbarType = {
   state: SitebarType
@@ -20,10 +21,11 @@ export const Navbar = ({state} : NavbarType) => {
   })
 
   return (
-    <aside className={style.sidebar}>
+    <aside className={s.sidebar}>
       <nav>
         <ul> {mappedItemsNavbar} </ul>
       </nav>
+      <Friends state={state.friends}/>
     </aside>
   )
 }

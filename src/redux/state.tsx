@@ -27,6 +27,11 @@ type ItemNavbarType = {
   title: string
 }
 
+export type FriendType = {
+  id: number
+  userName: string
+}
+
 type ProfilePageType = {
   personalInfoProfile: PersonalInfoProfileType
   posts: PostType[]
@@ -38,6 +43,7 @@ type DialogsPageType = {
 
 export type SitebarType = {
   itemsNavbar: ItemNavbarType[]
+  friends: FriendType[]
 }
 
 export type ContentType = {
@@ -91,6 +97,11 @@ const state: StateType = {
       {id: 3, title:"news"}, 
       {id: 4, title:"music"}, 
       {id: 5, title:"settings"}, 
+    ],
+    friends: [
+      {id: 1, userName:"Viktor"}, 
+      {id: 2, userName:"Den"}, 
+      {id: 3, userName:"Emile"},  
     ],
   }
 }
