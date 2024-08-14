@@ -1,22 +1,21 @@
 .btn_wrapper {
-  width: 65%;
   display: flex;
-  justify-content: flex-end;
-  margin-top: 10px;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn_wrapper button {
   background-color: #05891d;
-  padding: 5px;
-  width: 120px;
+  padding: 10px;
+  min-width: 80px;
   color: aliceblue;
   cursor: pointer;
   transition: all 0.5s;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px grey;
 }
 
 .btn_wrapper button:hover {
   background-color: aliceblue;
-  padding: 5px;
-  width: 120px;
   color: #05891d;;
 }

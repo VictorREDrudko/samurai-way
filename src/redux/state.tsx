@@ -84,9 +84,9 @@ const state: StateType = {
         {id: 3, user: "Gleb777", messages: ["Are you at home now????"]},
         {id: 4, user: "DimaFace", messages: ["Good morning! I am Dmitriy Ka!!! Pleas call me today"]},
         {id: 5, user: "AnonimusAll", messages: ["hGYUUYIUIUBMIUUHUHUPI"]},
-        {id: 6, user: "GreatPlezuar", messages: ["+375295654321"]},
-        {id: 7, user: "Nikodim99", messages: ["oyyy! Hi!!! I am fine, thank you!!!", "It is very good)))"]},
-        {id: 8, user: "MariborGrand", messages: ["RRRRRRRRRRR"]},
+        // {id: 6, user: "GreatPlezuar", messages: ["+375295654321"]},
+        // {id: 7, user: "Nikodim99", messages: ["oyyy! Hi!!! I am fine, thank you!!!", "It is very good)))"]},
+        // {id: 8, user: "MariborGrand", messages: ["RRRRRRRRRRR"]},
       ]
     }
   },

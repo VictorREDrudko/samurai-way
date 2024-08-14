@@ -12,6 +12,11 @@
   margin-bottom: 15px;
 }
 
+.formWrapper {
+  display: flex;
+  gap: 20px;
+}
+
 .posts textarea {
   width: 65%;
   height: 60px;
@@ -20,6 +25,8 @@
   padding: 5px;
   font-size: 14px;
   resize: none;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px grey;
 }
 
 .posts textarea:focus {

@@ -1,9 +1,18 @@
 import style from './Button.module.css'
 
-export const Button = () => {
+type ButtonType = {
+  title: string
+  callback: ()=> void
+}
+
+export const Button = ({title, callback}: ButtonType) => {
+  const onClickHandler = () => {
+    callback()
+  }
+
   return (
     <div className={style.btn_wrapper}>
-      <button type='button'>Send</button>
+      <button type='button' onClick={onClickHandler}>{title}</button>
     </div>
   )
 }

@@ -7,9 +7,9 @@ type MessageType = {
 }
 
 export const Message = ({messages, userName}: MessageType) => {
-  const mappedMessages = messages.map(message => {
+  const mappedMessages = messages.map((message, index) => {
     return (
-      <div className={s.messageWrapper}>
+      <div key={index} className={s.messageWrapper}>
         <Avatar userName={userName}/>
         <div>{message}</div>
       </div>
