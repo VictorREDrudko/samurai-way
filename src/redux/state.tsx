@@ -1,4 +1,11 @@
-import { allRerender } from "../render"
+// Parttern
+let allRerender = (state: StateType) => {
+  console.log()
+}
+
+export const subscribe = (observer: any) => {
+  allRerender = observer;
+}
 
 // Types
 type InfoType = {
