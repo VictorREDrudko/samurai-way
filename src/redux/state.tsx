@@ -1,3 +1,5 @@
+import { allRerender } from "../render"
+
 // Types
 type InfoType = {
   id: number
@@ -56,6 +58,25 @@ export type StateType = {
   sitebar: SitebarType
 }
 
+export const addNewPost = (text: string) => {
+  const newPost = {
+    id: state.contentPage.profilePage.posts.length + 1, 
+    text, 
+    count: 0,
+  }
+  state.contentPage.profilePage.posts.push(newPost);
+
+  allRerender(state)
+  // return (
+  //   {...state, contentPage: 
+  //     {...state.contentPage, profilePage: 
+  //       {...state.contentPage.profilePage, posts: 
+  //         [newPost, ...state.contentPage.profilePage.posts]
+  //       }
+  //     }
+  //   }
+  // )
+}
 
 // GLOBAL DATA
 const state: StateType = {
@@ -68,7 +89,7 @@ const state: StateType = {
         {id: 2, title: "Address:", value: "Minsk, Hohlova 22-94"},
         {id: 3, title: "Education:", value: "BSU 2007"},
         {id: 4, title: "Web Site:", value: "https://it-kamasutra.com"},
-    ]
+         ]
       },
       posts: [
         {id: 1, text: "How I am?", count: 7},
@@ -84,9 +105,9 @@ const state: StateType = {
         {id: 3, user: "Gleb777", messages: ["Are you at home now????"]},
         {id: 4, user: "DimaFace", messages: ["Good morning! I am Dmitriy Ka!!! Pleas call me today"]},
         {id: 5, user: "AnonimusAll", messages: ["hGYUUYIUIUBMIUUHUHUPI"]},
-        // {id: 6, user: "GreatPlezuar", messages: ["+375295654321"]},
-        // {id: 7, user: "Nikodim99", messages: ["oyyy! Hi!!! I am fine, thank you!!!", "It is very good)))"]},
-        // {id: 8, user: "MariborGrand", messages: ["RRRRRRRRRRR"]},
+        {id: 6, user: "GreatPlezuar", messages: ["+375295654321"]},
+        {id: 7, user: "Nikodim99", messages: ["oyyy! Hi!!! I am fine, thank you!!!", "It is very good)))"]},
+        {id: 8, user: "MariborGrand", messages: ["RRRRRRRRRRR"]},
       ]
     }
   },

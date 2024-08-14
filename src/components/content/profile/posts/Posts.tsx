@@ -7,9 +7,10 @@ import { Post } from './post/Post'
 
 type PostsType = {
   posts: PostType[]
+  addNewPost: (text: string)=>void
 }
 
-export const Posts = ({posts}: PostsType) => {
+export const Posts = ({posts, addNewPost}: PostsType) => {
   // Logic
   const mappedPosts = posts.map(post => <Post key={post.id} message={post.text} count={post.count}/>)
  
@@ -17,7 +18,9 @@ export const Posts = ({posts}: PostsType) => {
 
   const addPost = () => {
     let post = refNewPost.current?.value;
-    alert(post);
+    if (!post) return;
+    addNewPost(post);
+    if (refNewPost.current?.value) return refNewPost.current.value = '';
   }
 
   return (

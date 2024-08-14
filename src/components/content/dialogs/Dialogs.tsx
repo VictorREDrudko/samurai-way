@@ -11,8 +11,12 @@ type DialogsPropsType = {
 }
 
 export const Dialogs = ({dialogs}: DialogsPropsType) => {
-  const mappedDialogs = dialogs.map(dialog => <Message key={dialog.id} messages={dialog.messages} userName={dialog.user}/>)
-  
+  const mappedDialogs = dialogs.map(dialog => {
+    return <Message key={dialog.id} 
+                    messages={dialog.messages} 
+                    userName={dialog.user}/>
+  })
+
   const refNewMessage = React.createRef<HTMLTextAreaElement>()
   
   const addMessage = () => {
@@ -34,6 +38,5 @@ export const Dialogs = ({dialogs}: DialogsPropsType) => {
         <div> {mappedDialogs} </div>
       </div>
     </div>
-
   )
 }

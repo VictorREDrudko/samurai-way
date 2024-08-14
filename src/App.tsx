@@ -6,14 +6,15 @@ import { StateType } from './redux/state';
 
 type AppType = {
   state: StateType
+  addPost: (text: string)=>void
 }
 
-function App({state}: AppType) {
+function App({state, addPost}: AppType) {
    return (
     <div className="wrapper">
       <Header/>
       <Navbar state={state.sitebar}/>
-      <Content state={state.contentPage}/>
+      <Content state={state.contentPage} addPost={addPost}/>
     </div>
   );
 }
