@@ -7,12 +7,11 @@ import { PostsType } from '../../../../redux/state'
 
 type PostsPropsType = {
   posts: PostsType
-  addNewPost: (text: string)=>void
+  addNewPost: ()=>void
   updateTextareaPost: (newtext: string)=>void
 }
 
 export const Posts = ({posts, addNewPost, updateTextareaPost}: PostsPropsType) => {
-  console.log(posts)
   // Logic
   const mappedPosts = posts.allPosts.map(post => <Post key={post.id} message={post.text} count={post.count}/>)
  
@@ -21,7 +20,7 @@ export const Posts = ({posts, addNewPost, updateTextareaPost}: PostsPropsType) =
   const addPost = () => {
     let post = refNewPost.current?.value;
     if (!post) return;
-    addNewPost(post);
+    addNewPost();
     updateTextareaPost('');
   }
 

@@ -9,7 +9,7 @@ import { ContentType } from "../../redux/state"
 
 type ContentPropsType = {
   state: ContentType
-  addPost: (text: string)=>void
+  addPost: ()=>void
   updateTextareaPost: (newtext: string)=>void
 }
 

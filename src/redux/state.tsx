@@ -1,12 +1,3 @@
-// Parttern
-let allRerender = (state: StateType) => {
-  console.log()
-}
-
-export const subscribe = (observer: any) => {
-  allRerender = observer;
-}
-
 // Types
 type InfoType = {
   id: number
@@ -70,74 +61,92 @@ export type StateType = {
   sitebar: SitebarType
 }
 
-// Add new post
-export const addNewPost = (text: string) => {
-  const newPost = {
-    id: state.contentPage.profilePage.posts.allPosts.length + 1, 
-    text, 
-    count: 0,
-  }
-  state.contentPage.profilePage.posts.allPosts.push(newPost);
-
-  allRerender(state)
+export type StoreType = {
+  _state: StateType
+  _allRerender: (_state: StateType)=>void
+  subscribe: (observer: any)=>void
+  addNewPost: ()=>void
+  updateTextareaPost: (newtext: string)=>void
+  getState: ()=> StateType
 }
 
-// Change text texarea
-export const updateTextareaPost = (newtext: string) => {
-  state.contentPage.profilePage.posts.valueTextarea = newtext;
-  allRerender(state)
-}
+
 
 // GLOBAL DATA
-const state: StateType = {
-  contentPage: {
-    profilePage: {
-      personalInfoProfile: {
-        userName: "Viktor RED",
-        info : [
-        {id: 1, title: "Date of birth:", value: "2 September 1984"},
-        {id: 2, title: "Address:", value: "Minsk, Hohlova 22-94"},
-        {id: 3, title: "Education:", value: "BSU 2007"},
-        {id: 4, title: "Web Site:", value: "https://it-kamasutra.com"},
-         ]
+const store: StoreType = {
+  _state: {
+    contentPage: {
+      profilePage: {
+        personalInfoProfile: {
+          userName: "Viktor RED",
+          info : [
+          {id: 1, title: "Date of birth:", value: "2 September 1984"},
+          {id: 2, title: "Address:", value: "Minsk, Hohlova 22-94"},
+          {id: 3, title: "Education:", value: "BSU 2007"},
+          {id: 4, title: "Web Site:", value: "https://it-kamasutra.com"},
+           ]
+        },
+        posts: {
+          valueTextarea: "",
+          allPosts: [
+            {id: 1, text: "How I am?", count: 7},
+            {id: 2, text: "I want to become a super specialist!!!", count: 1},
+            {id: 3, text: "I'd like to speak English correctly and fluently", count: 22},
+            {id: 4, text: "Hey, why nobody love me?", count: 5}
+          ]
+        }
       },
-      posts: {
-        valueTextarea: "",
-        allPosts: [
-          {id: 1, text: "How I am?", count: 7},
-          {id: 2, text: "I want to become a super specialist!!!", count: 1},
-          {id: 3, text: "I'd like to speak English correctly and fluently", count: 22},
-          {id: 4, text: "Hey, why nobody love me?", count: 5}
+      dialogsPage: {
+        dialogs: [
+          {id: 1, user: "Alex", messages: ["Hello. how are you???", "oyyy! Hi!!! I am fine, thank you!!!", "It is very good)))"]},
+          {id: 2, user: "Andru", messages: ["Hi", "Hi!!!", "Cool)))"]},
+          {id: 3, user: "Gleb777", messages: ["Are you at home now????"]},
+          {id: 4, user: "DimaFace", messages: ["Good morning! I am Dmitriy Ka!!! Pleas call me today"]},
+          {id: 5, user: "AnonimusAll", messages: ["hGYUUYIUIUBMIUUHUHUPI"]},
+          {id: 6, user: "GreatPlezuar", messages: ["+375295654321"]},
+          {id: 7, user: "Nikodim99", messages: ["oyyy! Hi!!! I am fine, thank you!!!", "It is very good)))"]},
+          {id: 8, user: "MariborGrand", messages: ["RRRRRRRRRRR"]},
         ]
       }
     },
-    dialogsPage: {
-      dialogs: [
-        {id: 1, user: "Alex", messages: ["Hello. how are you???", "oyyy! Hi!!! I am fine, thank you!!!", "It is very good)))"]},
-        {id: 2, user: "Andru", messages: ["Hi", "Hi!!!", "Cool)))"]},
-        {id: 3, user: "Gleb777", messages: ["Are you at home now????"]},
-        {id: 4, user: "DimaFace", messages: ["Good morning! I am Dmitriy Ka!!! Pleas call me today"]},
-        {id: 5, user: "AnonimusAll", messages: ["hGYUUYIUIUBMIUUHUHUPI"]},
-        {id: 6, user: "GreatPlezuar", messages: ["+375295654321"]},
-        {id: 7, user: "Nikodim99", messages: ["oyyy! Hi!!! I am fine, thank you!!!", "It is very good)))"]},
-        {id: 8, user: "MariborGrand", messages: ["RRRRRRRRRRR"]},
-      ]
+    sitebar: {
+      itemsNavbar: [
+        {id: 1, title:"profile"}, 
+        {id: 2, title:"messanges"}, 
+        {id: 3, title:"news"}, 
+        {id: 4, title:"music"}, 
+        {id: 5, title:"settings"}, 
+      ],
+      friends: [
+        {id: 1, userName:"Viktor"}, 
+        {id: 2, userName:"Den"}, 
+        {id: 3, userName:"Emile"},  
+      ],
     }
   },
-  sitebar: {
-    itemsNavbar: [
-      {id: 1, title:"profile"}, 
-      {id: 2, title:"messanges"}, 
-      {id: 3, title:"news"}, 
-      {id: 4, title:"music"}, 
-      {id: 5, title:"settings"}, 
-    ],
-    friends: [
-      {id: 1, userName:"Viktor"}, 
-      {id: 2, userName:"Den"}, 
-      {id: 3, userName:"Emile"},  
-    ],
+  _allRerender () {
+    console.log("yes")
+  },
+  subscribe (observer: any) {
+    this._allRerender = observer;
+  },
+  addNewPost () {
+    const newPost = {
+      id: this._state.contentPage.profilePage.posts.allPosts.length + 1, 
+      text: this._state.contentPage.profilePage.posts.valueTextarea, 
+      count: 0,
+    }
+    this._state.contentPage.profilePage.posts.allPosts.push(newPost);
+    this._state.contentPage.profilePage.posts.valueTextarea = '';
+    this._allRerender(this._state);
+  },
+  updateTextareaPost (newtext: string) {
+    this._state.contentPage.profilePage.posts.valueTextarea = newtext;
+    this._allRerender(this._state);
+  },
+  getState () {
+    return this._state;
   }
 }
 
-export default state
+export default store

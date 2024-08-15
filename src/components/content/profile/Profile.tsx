@@ -7,7 +7,7 @@ import style from './Profile.module.css'
 type ProfileType = {
   infoProfile: PersonalInfoProfileType
   posts: PostsType
-  addPost: (text: string)=>void
+  addPost: ()=>void
   updateTextareaPost: (newtext: string)=>void
 }
 

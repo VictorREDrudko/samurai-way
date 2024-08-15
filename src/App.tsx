@@ -2,20 +2,22 @@ import './App.css';
 import { Header } from './components/header/Header';
 import { Navbar } from './components/navbar/Navbar';
 import { Content } from './components/content/Content';
-import { StateType } from './redux/state';
+import { StateType, StoreType } from './redux/state';
 
 type AppType = {
   state: StateType
-  addPost: (text: string)=>void
+  addPost: ()=>void
   updateTextareaPost: (newtext: string)=>void
 }
 
-function App({state, addPost, updateTextareaPost}: AppType) {
+function App({state, addPost, updateTextareaPost} : AppType) {
    return (
     <div className="wrapper">
       <Header/>
       <Navbar state={state.sitebar}/>
-      <Content state={state.contentPage} addPost={addPost} updateTextareaPost={updateTextareaPost}/>
+      <Content  state={state.contentPage} 
+                addPost={addPost} 
+                updateTextareaPost={updateTextareaPost}/>
     </div>
   );
 }

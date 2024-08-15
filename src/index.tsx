@@ -1,24 +1,25 @@
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import state, { addNewPost, StateType, subscribe, updateTextareaPost } from './redux/state'
+import { StateType, } from './redux/state'
 import { BrowserRouter } from 'react-router-dom';
+import store from './redux/state';
 
 
 export const allRerender = (state:StateType) => {
   ReactDOM.render(
     <BrowserRouter>
       <App  state={state} 
-            addPost={addNewPost} 
-            updateTextareaPost={updateTextareaPost}/>
+            addPost={store.addNewPost.bind(store)} 
+            updateTextareaPost={store.updateTextareaPost.bind(store)}/>
     </BrowserRouter>,
     document.getElementById('root')
   );
 }
 
-allRerender(state)
+allRerender(store.getState())
 
 // Pattern
-subscribe(allRerender)
+store.subscribe(allRerender)
 
 
