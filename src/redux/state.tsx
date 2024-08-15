@@ -1,3 +1,8 @@
+// CONST
+const ADD_POST = "ADD-NEW-POST"
+const UPDATE_TEXTAREA_POST = "UPDATE-TEXTAREA-POST"
+
+
 // Types
 type InfoType = {
   id: number
@@ -149,14 +154,11 @@ const store: StoreType = {
     return this._state;
   },
   dispatch (action: any) {
-    console.log(111111111)
     switch(action.type) {
       case "ADD-NEW-POST": 
-      console.log(2222222222)
         this._addNewPost();
         break;
       case "UPDATE-TEXTAREA-POST": 
-      console.log(3333333333333)
         this._updateTextareaPost(action.newText);
         break;
       default : return ''
@@ -166,3 +168,15 @@ const store: StoreType = {
 }
 
 export default store
+
+
+
+// Create Action Creator
+export const addPostAC = () => ({type: ADD_POST})
+
+export const updateTextareaPostAC = (text: string) => {
+  return (
+    {type: UPDATE_TEXTAREA_POST,
+    newText: text,}
+  )
+}

@@ -2,7 +2,7 @@ import React, { ChangeEvent } from 'react'
 import { Button } from '../../../button/Button'
 import s from './Posts.module.css'
 import { Post } from './post/Post'
-import { PostsType } from '../../../../redux/state'
+import { addPostAC, PostsType, updateTextareaPostAC } from '../../../../redux/state'
 
 
 type PostsPropsType = {
@@ -19,16 +19,12 @@ export const Posts = ({posts, dispatch}: PostsPropsType) => {
   const addPost = () => {
     let post = refNewPost.current?.value;
     if (!post) return;
-    dispatch({type:"ADD-NEW-POST"});
+    dispatch(addPostAC());
   }
 
   const onChangeHandler = (event: ChangeEvent<HTMLTextAreaElement>) => {
     const text = event.currentTarget.value;
-    const action = {
-      type: "UPDATE-TEXTAREA-POST",
-      newText: text
-    }
-    dispatch(action);
+    dispatch(updateTextareaPostAC(text));
   }
 
   return (
