@@ -5,10 +5,10 @@ import { Profile } from "./profile/Profile"
 import s from "./Content.module.css"
 import { News } from "./news/News"
 import { Music } from "./music/Music"
-import { ContentType } from "../../redux/state"
+import { StateType } from "../../redux/store"
 
 type ContentPropsType = {
-  state: ContentType
+  state: StateType
   dispatch: (action: any)=>void
 }
 

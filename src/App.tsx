@@ -2,7 +2,7 @@ import './App.css';
 import { Header } from './components/header/Header';
 import { Navbar } from './components/navbar/Navbar';
 import { Content } from './components/content/Content';
-import { StateType, StoreType } from './redux/state';
+import { StateType } from './redux/store';
 
 type AppType = {
   state: StateType
@@ -14,7 +14,7 @@ function App({state, dispatch} : AppType) {
     <div className="wrapper">
       <Header/>
       <Navbar state={state.sitebar}/>
-      <Content  state={state.contentPage} 
+      <Content  state={state} 
                 dispatch={dispatch} />
     </div>
   );

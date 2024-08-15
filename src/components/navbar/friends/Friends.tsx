@@ -1,4 +1,4 @@
-import { FriendType } from '../../../redux/state'
+import { FriendType } from '../../../redux/store'
 import { Avatar } from '../../avatar/Avatar'
 import s from './Friends.module.css'
 

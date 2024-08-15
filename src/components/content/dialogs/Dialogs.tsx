@@ -4,7 +4,7 @@ import { Button } from "../../button/Button";
 import s from "./Dialogs.module.css"
 import { ItemsDialogs } from "./itemsDialogs/ItemsDialogs";
 import { Message } from "./message/Message";
-import { DialogsPageType } from "../../../redux/state";
+import { DialogsPageType } from "../../../redux/store";
 
 type DialogsPropsType = {
   dialogs: DialogsPageType

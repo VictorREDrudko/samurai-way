@@ -1,4 +1,4 @@
-import { PersonalInfoProfileType, PostsType, } from '../../../redux/state'
+import { PersonalInfoProfileType, PostsType, } from '../../../redux/store'
 import MainImage from './../../../assets/image/carving.jpg'
 import { InfoProfile } from './infoProfile/InfoProfile'
 import { Posts } from './posts/Posts'

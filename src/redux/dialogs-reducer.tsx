@@ -1,10 +1,28 @@
-import { DialogsPageType } from "./state";
+import { DialogsPageType } from "./store";
 
 const ADD_MESSAGE = "ADD-NEW-MESSAGE"
 const UPDATE_TEXTAREA_MESSAGE = "UPDATE-TEXTAREA-MESSAGE"
 
+const initialState: DialogsPageType = {
+  messageTextareaValue: '',
+  usersDialog: [
+    {id: 1, user: "Alex"},
+    {id: 2, user: "Andru"},
+    {id: 3, user: "Gleb777"},
+    {id: 4, user: "DimaFace"},
+    {id: 5, user: "AnonimusAll"},
+    {id: 6, user: "GreatPlezuar"},
+    {id: 7, user: "Nikodim99"},
+    {id: 8, user: "MariborGrand"},
+  ],
+  messages: [
+    {id: 1, message: "Hello. how are you???"},
+    {id: 2, message: "Oyyy! Hi!!! I am fine, thank you!!!"},
+    {id: 3, message: "It is very good)))"}
+  ]
+}
 
-const dialogsReducer = (state: DialogsPageType, action: any) => {
+const dialogsReducer = (state = initialState, action: any) => {
   switch(action.type) {
     case ADD_MESSAGE:
       const newMessage = {

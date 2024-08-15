@@ -2,7 +2,7 @@ import React, { ChangeEvent } from 'react'
 import { Button } from '../../../button/Button'
 import s from './Posts.module.css'
 import { Post } from './post/Post'
-import { PostsType } from '../../../../redux/state'
+import { PostsType } from '../../../../redux/store'
 import { addPostAC, updateTextareaPostAC } from '../../../../redux/profile-reducer'
 
 

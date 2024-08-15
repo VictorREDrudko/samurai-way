@@ -1,9 +1,30 @@
-import { ProfilePageType } from "./state";
+import { ProfilePageType } from "./store";
 
 const ADD_POST = "ADD-NEW-POST"
 const UPDATE_TEXTAREA_POST = "UPDATE-TEXTAREA-POST"
 
-const profileReducer = (state: ProfilePageType, action: any) => {
+const initialState: ProfilePageType = {
+  personalInfoProfile: {
+    userName: "Viktor RED",
+    info : [
+    {id: 1, title: "Date of birth:", value: "2 September 1984"},
+    {id: 2, title: "Address:", value: "Minsk, Hohlova 22-94"},
+    {id: 3, title: "Education:", value: "BSU 2007"},
+    {id: 4, title: "Web Site:", value: "https://it-kamasutra.com"},
+     ]
+  },
+  posts: {
+    valueTextarea: "",
+    allPosts: [
+      {id: 1, text: "How I am?", count: 7},
+      {id: 2, text: "I want to become a super specialist!!!", count: 1},
+      {id: 3, text: "I'd like to speak English correctly and fluently", count: 22},
+      {id: 4, text: "Hey, why nobody love me?", count: 5}
+    ]
+  }
+}
+
+const profileReducer = (state = initialState, action: any) => {
   switch(action.type) {
     case ADD_POST: 
       const newPost = {

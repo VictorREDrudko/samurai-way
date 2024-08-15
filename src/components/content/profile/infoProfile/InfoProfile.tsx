@@ -1,7 +1,7 @@
 import s from "./InfoProfile.module.css"
 import Lion from './../../../../assets/image/line.png'
 import { ItemProfile } from "./itemProfile/ItemProfile"
-import { PersonalInfoProfileType } from "../../../../redux/state"
+import { PersonalInfoProfileType } from "../../../../redux/store"
 
 type InfoProfilePropsType = {
   infoProfile: PersonalInfoProfileType
