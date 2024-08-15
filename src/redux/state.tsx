@@ -2,6 +2,9 @@
 const ADD_POST = "ADD-NEW-POST"
 const UPDATE_TEXTAREA_POST = "UPDATE-TEXTAREA-POST"
 
+const ADD_MESSAGE = "ADD-NEW-MESSAGE"
+const UPDATE_TEXTAREA_MESSAGE = "UPDATE-TEXTAREA-MESSAGE"
+
 
 // Types
 type InfoType = {
@@ -26,10 +29,14 @@ export type PersonalInfoProfileType = {
   info: InfoType[]
 }
 
-export type DialogType = {
+export type UserDialogType = {
   id: number
   user: string
-  messages: string[]
+}
+
+export type MessageDialogType = {
+  id: number
+  message: string
 }
 
 type ItemNavbarType = {
@@ -47,8 +54,10 @@ export type ProfilePageType = {
   posts: PostsType
 }
 
-type DialogsPageType = {
-  dialogs: DialogType[]
+export type DialogsPageType = {
+  messageTextareaValue: string
+  usersDialog: UserDialogType[]
+  messages: MessageDialogType[]
 }
 
 export type SitebarType = {
@@ -103,15 +112,21 @@ const store: StoreType = {
         }
       },
       dialogsPage: {
-        dialogs: [
-          {id: 1, user: "Alex", messages: ["Hello. how are you???", "oyyy! Hi!!! I am fine, thank you!!!", "It is very good)))"]},
-          {id: 2, user: "Andru", messages: ["Hi", "Hi!!!", "Cool)))"]},
-          {id: 3, user: "Gleb777", messages: ["Are you at home now????"]},
-          {id: 4, user: "DimaFace", messages: ["Good morning! I am Dmitriy Ka!!! Pleas call me today"]},
-          {id: 5, user: "AnonimusAll", messages: ["hGYUUYIUIUBMIUUHUHUPI"]},
-          {id: 6, user: "GreatPlezuar", messages: ["+375295654321"]},
-          {id: 7, user: "Nikodim99", messages: ["oyyy! Hi!!! I am fine, thank you!!!", "It is very good)))"]},
-          {id: 8, user: "MariborGrand", messages: ["RRRRRRRRRRR"]},
+        messageTextareaValue: '',
+        usersDialog: [
+          {id: 1, user: "Alex"},
+          {id: 2, user: "Andru"},
+          {id: 3, user: "Gleb777"},
+          {id: 4, user: "DimaFace"},
+          {id: 5, user: "AnonimusAll"},
+          {id: 6, user: "GreatPlezuar"},
+          {id: 7, user: "Nikodim99"},
+          {id: 8, user: "MariborGrand"},
+        ],
+        messages: [
+          {id: 1, message: "Hello. how are you???"},
+          {id: 2, message: "Oyyy! Hi!!! I am fine, thank you!!!"},
+          {id: 3, message: "It is very good)))"}
         ]
       }
     },
@@ -155,12 +170,26 @@ const store: StoreType = {
   },
   dispatch (action: any) {
     switch(action.type) {
-      case "ADD-NEW-POST": 
+      case ADD_POST: 
         this._addNewPost();
         break;
-      case "UPDATE-TEXTAREA-POST": 
+      case UPDATE_TEXTAREA_POST: 
         this._updateTextareaPost(action.newText);
         break;
+      case ADD_MESSAGE:
+        const newMessage = {
+          id: this._state.contentPage.dialogsPage.messages.length +1, 
+          message: this._state.contentPage.dialogsPage.messageTextareaValue
+        };
+        this._state.contentPage.dialogsPage.messages.push(newMessage);
+        this._state.contentPage.dialogsPage.messageTextareaValue = '';
+        this._allRerender(this._state);
+        break;
+      case UPDATE_TEXTAREA_MESSAGE: 
+        this._state.contentPage.dialogsPage.messageTextareaValue = action.newText;
+        this._allRerender(this._state);
+        break;
+
       default : return ''
     }
 
@@ -178,5 +207,14 @@ export const updateTextareaPostAC = (text: string) => {
   return (
     {type: UPDATE_TEXTAREA_POST,
     newText: text,}
+  )
+}
+
+export const addMessageAC = () => ({type: ADD_MESSAGE})
+
+export const updateTextareaMessageAC = (newMessageText: string) => {
+  return (
+    {type: UPDATE_TEXTAREA_MESSAGE,
+    newText: newMessageText,}
   )
 }

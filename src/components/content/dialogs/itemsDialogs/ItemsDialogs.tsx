@@ -1,14 +1,17 @@
 import { NavLink } from "react-router-dom";
 import s from "./ItemDialogs.module.css"
+import { UserDialogType } from "../../../../redux/state";
 
-export const ItemsDialogs = () => {
-  // DATA
-  const dialogsItems = ["Alex", "Addrue", "Fill", "Kane", "Statham Rouny", "Gleb", "Sacha", "Roony", "Archi", "Mackgregorean Keeng"];
+type ItemsDialogsType = {
+  users: UserDialogType[]
+}
+
+export const ItemsDialogs = ({users}: ItemsDialogsType) => {
   
-  const mappedDialogsItems = dialogsItems.map((el, index) => {
+  const mappedDialogsItems = users.map((el) => {
     return (
-      <li className={s.item} key={index}>
-        <NavLink style={({isActive}) => ({color: isActive ? "red" : ''})} to={`/dialogs/${index}`}>{el}</NavLink>
+      <li className={s.item} key={el.id}>
+        <NavLink style={({isActive}) => ({color: isActive ? "red" : ''})} to={`/dialogs/${el.id}`}>{el.user}</NavLink>
       </li>
     );
   });

@@ -3,3 +3,8 @@
   align-items: center;
   margin: 0 0 20px 0;
 }
+
+.text {
+  margin-left: 20px;
+  font-style: italic;
+}

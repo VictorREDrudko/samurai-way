@@ -22,7 +22,7 @@ export const Content = ({state, dispatch}: ContentPropsType) => {
                     posts={state.profilePage.posts}/>
             }
           />
-        <Route path='/messanges' element={<Dialogs dialogs={state.dialogsPage.dialogs}/>}/>
+        <Route path='/messanges' element={<Dialogs dialogs={state.dialogsPage} dispatch={dispatch}/>}/>
         <Route path='/news' element={<News/>}/>
         <Route path='/music' element={<Music/>}/>
         <Route path='/settings' element={<Settings/>}/>

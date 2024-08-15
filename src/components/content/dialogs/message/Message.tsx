@@ -2,23 +2,16 @@ import { Avatar } from "../../../avatar/Avatar"
 import s from "./Message.module.css"
 
 type MessageType = {
-  messages: string[] 
-  userName: string
+  message: string
 }
 
-export const Message = ({messages, userName}: MessageType) => {
-  const mappedMessages = messages.map((message, index) => {
-    return (
-      <div key={index} className={s.messageWrapper}>
-        <Avatar userName={userName}/>
-        <div>{message}</div>
-      </div>
-    )
-  })
+export const Message = ({message}: MessageType) => {
 
   return (
-    <div>
-      {mappedMessages}
+    <div className={s.messageWrapper}>
+      <Avatar userName={"**Unknow**"}/>
+      <div className={s.text}>{message}</div>
     </div>
+
   )
 }
