@@ -10,8 +10,7 @@ export const allRerender = (state:StateType) => {
   ReactDOM.render(
     <BrowserRouter>
       <App  state={state} 
-            addPost={store.addNewPost.bind(store)} 
-            updateTextareaPost={store.updateTextareaPost.bind(store)}/>
+            dispatch={store.dispatch.bind(store)} />
     </BrowserRouter>,
     document.getElementById('root')
   );
@@ -20,6 +19,6 @@ export const allRerender = (state:StateType) => {
 allRerender(store.getState())
 
 // Pattern
-store.subscribe(allRerender)
+store._subscribe(allRerender)
 
 

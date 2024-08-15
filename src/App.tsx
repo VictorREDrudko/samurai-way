@@ -6,18 +6,16 @@ import { StateType, StoreType } from './redux/state';
 
 type AppType = {
   state: StateType
-  addPost: ()=>void
-  updateTextareaPost: (newtext: string)=>void
+  dispatch: (action: any)=>void
 }
 
-function App({state, addPost, updateTextareaPost} : AppType) {
+function App({state, dispatch} : AppType) {
    return (
     <div className="wrapper">
       <Header/>
       <Navbar state={state.sitebar}/>
       <Content  state={state.contentPage} 
-                addPost={addPost} 
-                updateTextareaPost={updateTextareaPost}/>
+                dispatch={dispatch} />
     </div>
   );
 }

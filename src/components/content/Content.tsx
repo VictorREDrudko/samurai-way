@@ -9,17 +9,15 @@ import { ContentType } from "../../redux/state"
 
 type ContentPropsType = {
   state: ContentType
-  addPost: ()=>void
-  updateTextareaPost: (newtext: string)=>void
+  dispatch: (action: any)=>void
 }
 
-export const Content = ({state, addPost, updateTextareaPost}: ContentPropsType) => {
+export const Content = ({state, dispatch}: ContentPropsType) => {
   return (
     <div className={s.content}>
       <Routes>
         <Route path='/profile' element={
-          <Profile  addPost={addPost} 
-                    updateTextareaPost={updateTextareaPost}
+          <Profile  dispatch={dispatch} 
                     infoProfile={state.profilePage.personalInfoProfile} 
                     posts={state.profilePage.posts}/>
             }

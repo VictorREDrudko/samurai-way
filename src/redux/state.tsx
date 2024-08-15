@@ -64,10 +64,11 @@ export type StateType = {
 export type StoreType = {
   _state: StateType
   _allRerender: (_state: StateType)=>void
-  subscribe: (observer: any)=>void
-  addNewPost: ()=>void
-  updateTextareaPost: (newtext: string)=>void
+  _subscribe: (observer: any)=>void
   getState: ()=> StateType
+  _addNewPost: ()=>void
+  _updateTextareaPost: (newtext: string)=>void
+  dispatch: (action: any)=> void
 }
 
 
@@ -127,10 +128,10 @@ const store: StoreType = {
   _allRerender () {
     console.log("yes")
   },
-  subscribe (observer: any) {
+  _subscribe (observer: any) {
     this._allRerender = observer;
   },
-  addNewPost () {
+  _addNewPost () {
     const newPost = {
       id: this._state.contentPage.profilePage.posts.allPosts.length + 1, 
       text: this._state.contentPage.profilePage.posts.valueTextarea, 
@@ -140,12 +141,27 @@ const store: StoreType = {
     this._state.contentPage.profilePage.posts.valueTextarea = '';
     this._allRerender(this._state);
   },
-  updateTextareaPost (newtext: string) {
-    this._state.contentPage.profilePage.posts.valueTextarea = newtext;
+  _updateTextareaPost (newText: string) {
+    this._state.contentPage.profilePage.posts.valueTextarea = newText;
     this._allRerender(this._state);
   },
   getState () {
     return this._state;
+  },
+  dispatch (action: any) {
+    console.log(111111111)
+    switch(action.type) {
+      case "ADD-NEW-POST": 
+      console.log(2222222222)
+        this._addNewPost();
+        break;
+      case "UPDATE-TEXTAREA-POST": 
+      console.log(3333333333333)
+        this._updateTextareaPost(action.newText);
+        break;
+      default : return ''
+    }
+
   }
 }
 

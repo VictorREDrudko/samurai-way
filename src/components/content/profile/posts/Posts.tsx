@@ -7,11 +7,10 @@ import { PostsType } from '../../../../redux/state'
 
 type PostsPropsType = {
   posts: PostsType
-  addNewPost: ()=>void
-  updateTextareaPost: (newtext: string)=>void
+  dispatch: (action: any)=>void
 }
 
-export const Posts = ({posts, addNewPost, updateTextareaPost}: PostsPropsType) => {
+export const Posts = ({posts, dispatch}: PostsPropsType) => {
   // Logic
   const mappedPosts = posts.allPosts.map(post => <Post key={post.id} message={post.text} count={post.count}/>)
  
@@ -20,13 +19,16 @@ export const Posts = ({posts, addNewPost, updateTextareaPost}: PostsPropsType) =
   const addPost = () => {
     let post = refNewPost.current?.value;
     if (!post) return;
-    addNewPost();
-    updateTextareaPost('');
+    dispatch({type:"ADD-NEW-POST"});
   }
 
   const onChangeHandler = (event: ChangeEvent<HTMLTextAreaElement>) => {
     const text = event.currentTarget.value;
-    updateTextareaPost(text);
+    const action = {
+      type: "UPDATE-TEXTAREA-POST",
+      newText: text
+    }
+    dispatch(action);
   }
 
   return (
