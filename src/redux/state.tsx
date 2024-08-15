@@ -1,10 +1,6 @@
-// CONST
-const ADD_POST = "ADD-NEW-POST"
-const UPDATE_TEXTAREA_POST = "UPDATE-TEXTAREA-POST"
-
-const ADD_MESSAGE = "ADD-NEW-MESSAGE"
-const UPDATE_TEXTAREA_MESSAGE = "UPDATE-TEXTAREA-MESSAGE"
-
+import dialogsReducer from "./dialogs-reducer"
+import profileReducer from "./profile-reducer"
+import sitebarReducer from "./sitebar-reduser"
 
 // Types
 type InfoType = {
@@ -80,12 +76,8 @@ export type StoreType = {
   _allRerender: (_state: StateType)=>void
   _subscribe: (observer: any)=>void
   getState: ()=> StateType
-  _addNewPost: ()=>void
-  _updateTextareaPost: (newtext: string)=>void
   dispatch: (action: any)=> void
 }
-
-
 
 // GLOBAL DATA
 const store: StoreType = {
@@ -151,70 +143,16 @@ const store: StoreType = {
   _subscribe (observer: any) {
     this._allRerender = observer;
   },
-  _addNewPost () {
-    const newPost = {
-      id: this._state.contentPage.profilePage.posts.allPosts.length + 1, 
-      text: this._state.contentPage.profilePage.posts.valueTextarea, 
-      count: 0,
-    }
-    this._state.contentPage.profilePage.posts.allPosts.push(newPost);
-    this._state.contentPage.profilePage.posts.valueTextarea = '';
-    this._allRerender(this._state);
-  },
-  _updateTextareaPost (newText: string) {
-    this._state.contentPage.profilePage.posts.valueTextarea = newText;
-    this._allRerender(this._state);
-  },
   getState () {
     return this._state;
   },
   dispatch (action: any) {
-    switch(action.type) {
-      case ADD_POST: 
-        this._addNewPost();
-        break;
-      case UPDATE_TEXTAREA_POST: 
-        this._updateTextareaPost(action.newText);
-        break;
-      case ADD_MESSAGE:
-        const newMessage = {
-          id: this._state.contentPage.dialogsPage.messages.length +1, 
-          message: this._state.contentPage.dialogsPage.messageTextareaValue
-        };
-        this._state.contentPage.dialogsPage.messages.push(newMessage);
-        this._state.contentPage.dialogsPage.messageTextareaValue = '';
-        this._allRerender(this._state);
-        break;
-      case UPDATE_TEXTAREA_MESSAGE: 
-        this._state.contentPage.dialogsPage.messageTextareaValue = action.newText;
-        this._allRerender(this._state);
-        break;
-
-      default : return ''
+    this._state.contentPage.profilePage = profileReducer(this._state.contentPage.profilePage, action)!
+    this._state.contentPage.dialogsPage = dialogsReducer(this._state.contentPage.dialogsPage, action)!
+    this._state.sitebar = sitebarReducer(this._state.sitebar, action)!
+    
+    this._allRerender(this._state);
     }
-
-  }
 }
 
 export default store
-
-
-
-// Create Action Creator
-export const addPostAC = () => ({type: ADD_POST})
-
-export const updateTextareaPostAC = (text: string) => {
-  return (
-    {type: UPDATE_TEXTAREA_POST,
-    newText: text,}
-  )
-}
-
-export const addMessageAC = () => ({type: ADD_MESSAGE})
-
-export const updateTextareaMessageAC = (newMessageText: string) => {
-  return (
-    {type: UPDATE_TEXTAREA_MESSAGE,
-    newText: newMessageText,}
-  )
-}

@@ -2,7 +2,8 @@ import React, { ChangeEvent } from 'react'
 import { Button } from '../../../button/Button'
 import s from './Posts.module.css'
 import { Post } from './post/Post'
-import { addPostAC, PostsType, updateTextareaPostAC } from '../../../../redux/state'
+import { PostsType } from '../../../../redux/state'
+import { addPostAC, updateTextareaPostAC } from '../../../../redux/profile-reducer'
 
 
 type PostsPropsType = {

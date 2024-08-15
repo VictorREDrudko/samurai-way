@@ -1,10 +1,10 @@
 import React, { ChangeEvent } from "react";
-import { addMessageAC, DialogsPageType, updateTextareaMessageAC } from "../../../redux/state";
+import { addMessageAC, updateTextareaMessageAC } from "../../../redux/dialogs-reducer";
 import { Button } from "../../button/Button";
 import s from "./Dialogs.module.css"
 import { ItemsDialogs } from "./itemsDialogs/ItemsDialogs";
 import { Message } from "./message/Message";
-import { Textarea } from "../../textarea/Textarea";
+import { DialogsPageType } from "../../../redux/state";
 
 type DialogsPropsType = {
   dialogs: DialogsPageType
@@ -16,8 +16,6 @@ export const Dialogs = ({dialogs, dispatch}: DialogsPropsType) => {
     return <Message key={dialog.id} 
                     message={dialog.message} />
   })
-
-  const refNewMessage = React.createRef<HTMLTextAreaElement>()
   
   const addMessage = () => {
     dispatch(addMessageAC())
@@ -25,7 +23,7 @@ export const Dialogs = ({dialogs, dispatch}: DialogsPropsType) => {
 
   const onChangeHandler = (event: ChangeEvent<HTMLTextAreaElement>) => {
     let newText = event.currentTarget.value;
-    dispatch(updateTextareaMessageAC(newText))
+    dispatch(updateTextareaMessageAC(newText));
   }
 
   return (
