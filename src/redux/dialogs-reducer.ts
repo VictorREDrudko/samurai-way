@@ -1,8 +1,24 @@
-import { DialogsPageType } from "./store";
-
+// CONST
 const ADD_MESSAGE = "ADD-NEW-MESSAGE"
 const UPDATE_TEXTAREA_MESSAGE = "UPDATE-TEXTAREA-MESSAGE"
 
+// Types
+export type UserDialogType = {
+  id: number
+  user: string
+}
+type MessageType = {
+  id: number
+  message: string
+}
+
+export type DialogsPageType = {
+  messageTextareaValue: string
+  usersDialog: UserDialogType[]
+  messages: MessageType[]
+}
+
+// Initial State
 const initialState: DialogsPageType = {
   messageTextareaValue: '',
   usersDialog: [
@@ -22,6 +38,7 @@ const initialState: DialogsPageType = {
   ]
 }
 
+// REDUCER
 const dialogsReducer = (state = initialState, action: any) => {
   switch(action.type) {
     case ADD_MESSAGE:

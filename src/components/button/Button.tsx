@@ -2,12 +2,12 @@ import style from './Button.module.css'
 
 type ButtonType = {
   title: string
-  callback: ()=> void
+  onClick: ()=> void
 }
 
-export const Button = ({title, callback}: ButtonType) => {
+export const Button = ({title, onClick}: ButtonType) => {
   const onClickHandler = () => {
-    callback()
+    onClick()
   }
 
   return (

@@ -1,21 +1,21 @@
-import { PersonalInfoProfileType, PostsType, } from '../../../redux/store'
+import { PersonalInfoProfileType, PostsType } from '../../../redux/profile-reducer'
 import MainImage from './../../../assets/image/carving.jpg'
 import { InfoProfile } from './infoProfile/InfoProfile'
-import { Posts } from './posts/Posts'
+import { PostsContainer } from './posts/PostsContainer'
 import style from './Profile.module.css'
 
 type ProfileType = {
+  store: any
   infoProfile: PersonalInfoProfileType
   posts: PostsType
-  dispatch: (action: any)=>void
 }
 
-export const Profile = ({infoProfile, posts, dispatch}: ProfileType) => {
+export const Profile = ({store, infoProfile, posts}: ProfileType) => {
   return (
     <main>
       <img className={style.img_main} src={MainImage} alt='carving'/>
       <InfoProfile infoProfile={infoProfile}/>
-      <Posts posts={posts} dispatch={dispatch} />
+      <PostsContainer posts={posts} store={store}/>
     </main>
   )
 }

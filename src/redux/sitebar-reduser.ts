@@ -1,5 +1,20 @@
-import { SitebarType } from "./store";
+// Types
+type ItemNavbarType = {
+  id: number
+  title: string
+}
 
+export type FriendType = {
+  id: number
+  userName: string
+}
+
+export type SitebarType = {
+  itemsNavbar: ItemNavbarType[]
+  friends: FriendType[]
+}
+
+// REDUCER
 const initialState: SitebarType = {
   itemsNavbar: [
     {id: 1, title:"profile"}, 
@@ -15,6 +30,7 @@ const initialState: SitebarType = {
   ],
 }
 
+// Action creator
 const sitebarReducer = (state = initialState, action: any) => {
   return state;
 }

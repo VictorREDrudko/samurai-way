@@ -1,28 +1,24 @@
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { StateType, } from './redux/store'
 import { BrowserRouter } from 'react-router-dom';
 import store from './redux/redux-store';
 
-
-export const allRerender = (state:StateType) => {
+export const allRerender = () => {
   ReactDOM.render(
     <BrowserRouter>
-      <App  state={state} 
-            dispatch={store.dispatch.bind(store)}
-      />
+        <App store={store} state={store.getState()}/>
+        {console.log(store.getState())}
     </BrowserRouter>,
     document.getElementById('root')
   );
 }
 
-allRerender(store.getState())
+allRerender()
 
 // Pattern
 store.subscribe(() => {
-  const state = store.getState();
-  allRerender(store.getState())
+  allRerender()
 })
 
 

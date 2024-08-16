@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import s from "./ItemDialogs.module.css"
-import { UserDialogType } from "../../../../redux/store";
+import { UserDialogType } from "../../../../redux/dialogs-reducer";
 
 type ItemsDialogsType = {
   users: UserDialogType[]
