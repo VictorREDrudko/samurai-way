@@ -3,11 +3,11 @@ import s from './Navbar.module.css'
 import { Friends } from './friends/Friends'
 import { SitebarType } from '../../redux/sitebar-reduser'
 
-type NavbarType = {
+type NavBarType = {
   state: SitebarType
 }
 
-export const Navbar = ({state} : NavbarType) => {
+export const Navbar = ({state}: NavBarType) => {
   // Logic
   const mappedItemsNavbar = state.itemsNavbar.map(itemMenu => {
     return (

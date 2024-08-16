@@ -9,7 +9,7 @@ type InfoType = {
   value: string
 }
 
-type PostType = {
+export type PostType = {
   id: number
   text: string
   count: number

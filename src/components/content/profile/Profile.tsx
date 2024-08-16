@@ -1,21 +1,20 @@
-import { PersonalInfoProfileType, PostsType } from '../../../redux/profile-reducer'
+import { ProfilePageType } from '../../../redux/profile-reducer'
+import DialogsContainer from '../dialogs/DialogsContainer'
 import MainImage from './../../../assets/image/carving.jpg'
 import { InfoProfile } from './infoProfile/InfoProfile'
-import { PostsContainer } from './posts/PostsContainer'
+import PostsContainer from './posts/PostsContainer'
 import style from './Profile.module.css'
 
-type ProfileType = {
-  store: any
-  infoProfile: PersonalInfoProfileType
-  posts: PostsType
+type ProfilePropsType = {
+  state: ProfilePageType
 }
 
-export const Profile = ({store, infoProfile, posts}: ProfileType) => {
+export const Profile = ({state}: ProfilePropsType) => {
   return (
     <main>
       <img className={style.img_main} src={MainImage} alt='carving'/>
-      <InfoProfile infoProfile={infoProfile}/>
-      <PostsContainer posts={posts} store={store}/>
+      <InfoProfile state={state.personalInfoProfile}/>
+      <PostsContainer/>
     </main>
   )
 }

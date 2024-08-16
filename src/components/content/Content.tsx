@@ -4,25 +4,19 @@ import { Profile } from "./profile/Profile"
 import s from "./Content.module.css"
 import { News } from "./news/News"
 import { Music } from "./music/Music"
-import { StateType } from "../../redux/redux-store"
-import { DialogsContainer } from "./dialogs/DialogsContainer"
+import DialogsContainer from "./dialogs/DialogsContainer"
+import { ProfilePageType } from "../../redux/profile-reducer"
 
 type ContentPropsType = {
-  store: any 
-  state: StateType
+  state: ProfilePageType
 }
 
-export const Content = ({store, state}: ContentPropsType) => {
+export const Content = ({state}: ContentPropsType) => {
   return (
     <div className={s.content}>
       <Routes>
-        <Route path='/profile' element={
-          <Profile  store={store} 
-                    infoProfile={state.profilePage.personalInfoProfile} 
-                    posts={state.profilePage.posts}/>
-            }
-          />
-        <Route path='/messanges' element={<DialogsContainer dialogs={state.dialogsPage} store={store}/>}/>
+        <Route path='/profile' element={<Profile state={state}/>}/>
+        <Route path='/messanges' element={<DialogsContainer/>}/>
         <Route path='/news' element={<News/>}/>
         <Route path='/music' element={<Music/>}/>
         <Route path='/settings' element={<Settings/>}/>

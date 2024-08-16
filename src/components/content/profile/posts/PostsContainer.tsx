@@ -1,26 +1,26 @@
-import React, { ChangeEvent } from 'react'
-import { Button } from '../../../button/Button'
-import s from './Posts.module.css'
-import { Post } from './post/Post'
-import { addPostAC, PostsType, updateTextareaPostAC } from '../../../../redux/profile-reducer'
-import { Posts } from './Posts'
+import { connect } from 'react-redux';
+import { addPostAC, updateTextareaPostAC } from '../../../../redux/profile-reducer';
+import { Posts } from './Posts';
+import { StateType } from '../../../../redux/redux-store';
 
-type PostsPropsType = {
-  store: any
-  posts: PostsType
+const mapStateToProps = (state: StateType) => {
+  return { state: state.profilePage.posts.allPosts,
+    text: state.profilePage.posts.valueTextarea
+  }
 }
 
-export const PostsContainer = ({store, posts}: PostsPropsType) => {
-  // Logic
-  const addPost = () => {
-    store.dispatch(addPostAC());
-  }
-
-  const onChangeText = (text: string) => {
-    store.dispatch(updateTextareaPostAC(text));
-  }
-
+const mapDispatchToProps = (dispatch: any) => {
   return (
-    <Posts posts={posts} addPost={addPost} onChangeText={onChangeText}/>
+    { addPost: () => {
+        dispatch(addPostAC());
+      },
+      onChangeText: (text: string) => {
+        dispatch(updateTextareaPostAC(text));
+      }
+    }
   )
 }
+
+const PostsContainer = connect(mapStateToProps, mapDispatchToProps)(Posts);
+
+export default PostsContainer;

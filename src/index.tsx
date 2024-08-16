@@ -3,12 +3,14 @@ import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import store from './redux/redux-store';
+import { Provider } from 'react-redux';
 
 export const allRerender = () => {
   ReactDOM.render(
     <BrowserRouter>
-        <App store={store} state={store.getState()}/>
-        {console.log(store.getState())}
+      <Provider store={store}>
+        <App state={store.getState()}/>
+      </Provider>
     </BrowserRouter>,
     document.getElementById('root')
   );

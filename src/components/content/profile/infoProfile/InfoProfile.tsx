@@ -4,12 +4,12 @@ import { ItemProfile } from "./itemProfile/ItemProfile"
 import { PersonalInfoProfileType } from "../../../../redux/profile-reducer"
 
 type InfoProfilePropsType = {
-  infoProfile: PersonalInfoProfileType
+  state: PersonalInfoProfileType
 }
 
-export const InfoProfile = ({infoProfile}: InfoProfilePropsType) => {
+export const InfoProfile = ({state}: InfoProfilePropsType) => {
   // Logic
-  const mappedInfoProfile = infoProfile.info.map(el => {
+  const mappedInfoProfile = state.info.map(el => {
     return (
       <ItemProfile key={el.id} title={el.title} value={el.value}/>
     )
@@ -19,7 +19,7 @@ export const InfoProfile = ({infoProfile}: InfoProfilePropsType) => {
     <div className={s.content}>
       <img className={s.img_content} src={Lion} alt='lion'/>
       <div className={s.description}>
-        <h1>{infoProfile.userName}</h1>
+        <h1>{state.userName}</h1>
         {mappedInfoProfile}
       </div>
     </div>
