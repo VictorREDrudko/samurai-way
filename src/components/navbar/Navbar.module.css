@@ -2,24 +2,3 @@
   background-color: rgb(198, 254, 208);
   grid-area: bar;
 }
-
-.sidebar nav {
-  padding: 5px;
-  margin-top: 10px;
-}
-
-.sidebar li {
-  margin-bottom: 15px;
-  font-size: 18px;
-  font-weight: 600;
-  transition: all 0.5s;
-}
-
-.sidebar li:last-child {
-  margin-top: 45px;
-}
-
-.sidebar li:hover {
-  transform: scale(1.2);
-}
-

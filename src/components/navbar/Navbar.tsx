@@ -1,31 +1,12 @@
-import { NavLink } from 'react-router-dom'
 import s from './Navbar.module.css'
-import { Friends } from './friends/Friends'
-import { SitebarType } from '../../redux/sitebar-reduser'
+import MenuNavbarContainer from './menuNavbar/MenuNavBarContainer'
+import FriendsContainer from './friends/FriendsContainer'
 
-type NavBarType = {
-  state: SitebarType
-}
-
-export const Navbar = ({state}: NavBarType) => {
-  // Logic
-  const mappedItemsNavbar = state.itemsNavbar.map(itemMenu => {
-    return (
-      <li key={itemMenu.id}>
-        <NavLink style={({isActive}) => ({color: isActive ? "red" : ''})} 
-                 to={`/${itemMenu.title}`}>
-          {itemMenu.title}
-        </NavLink>
-      </li>
-    )
-  })
-
+export const Navbar = () => {
   return (
     <aside className={s.sidebar}>
-      <nav>
-        <ul> {mappedItemsNavbar} </ul>
-      </nav>
-      <Friends state={state.friends}/>
+      <MenuNavbarContainer/>
+      <FriendsContainer/>
     </aside>
   )
 }

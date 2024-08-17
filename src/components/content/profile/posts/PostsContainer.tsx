@@ -4,9 +4,10 @@ import { Posts } from './Posts';
 import { StateType } from '../../../../redux/redux-store';
 
 const mapStateToProps = (state: StateType) => {
-  return { state: state.profilePage.posts.allPosts,
-    text: state.profilePage.posts.valueTextarea
-  }
+  return (
+    { state: state.profilePage.posts.allPosts,
+    text: state.profilePage.posts.valueTextarea }
+  )
 }
 
 const mapDispatchToProps = (dispatch: any) => {

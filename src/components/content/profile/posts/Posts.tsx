@@ -4,7 +4,6 @@ import s from './Posts.module.css'
 import { Post } from './post/Post'
 import { PostType } from '../../../../redux/profile-reducer'
 
-
 type PostsPropsType = {
   state: PostType[]
   text: string

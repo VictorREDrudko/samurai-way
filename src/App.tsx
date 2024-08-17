@@ -12,7 +12,7 @@ function App({state}: AppType) {
    return (
     <div className="wrapper">
       <Header/>
-      <Navbar state={state.sitebar}/>
+      <Navbar />
       <Content state={state.profilePage}/>
     </div>
   );

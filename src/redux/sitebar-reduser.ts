@@ -1,5 +1,5 @@
 // Types
-type ItemNavbarType = {
+export type ItemNavbarType = {
   id: number
   title: string
 }

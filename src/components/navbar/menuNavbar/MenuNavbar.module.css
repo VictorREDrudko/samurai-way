@@ -1,0 +1,19 @@
+.containerNavbar {
+  padding: 5px;
+  margin-top: 10px;
+}
+
+.containerNavbar li {
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  transition: all 0.5s;
+}
+
+.containerNavbar li:last-child {
+  margin-top: 45px;
+}
+
+.containerNavbar li:hover {
+  transform: scale(1.2);
+}
